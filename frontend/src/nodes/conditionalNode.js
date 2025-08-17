@@ -33,37 +33,15 @@ const ConditionalNodeContent = ({ id, data }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        flex: 1,
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+    <div className="node-form">
+      <div className="form-group">
+        <label className="form-label">
           Condition:
         </label>
         <select
           value={currName}
           onChange={handleConditionChange}
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-select"
         >
           <option value="equals">Equals</option>
           <option value="greater_than">Greater Than</option>
@@ -73,15 +51,8 @@ const ConditionalNodeContent = ({ id, data }) => {
         </select>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+      <div className="form-group">
+        <label className="form-label">
           Threshold:
         </label>
         <input
@@ -89,26 +60,12 @@ const ConditionalNodeContent = ({ id, data }) => {
           value={threshold}
           onChange={handleThresholdChange}
           placeholder="Enter threshold value"
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-input"
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+      <div className="form-group">
+        <label className="form-label">
           True Value:
         </label>
         <input
@@ -116,26 +73,12 @@ const ConditionalNodeContent = ({ id, data }) => {
           value={trueValue}
           onChange={handleTrueValueChange}
           placeholder="Value when condition is true"
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-input"
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+      <div className="form-group">
+        <label className="form-label">
           False Value:
         </label>
         <input
@@ -143,14 +86,7 @@ const ConditionalNodeContent = ({ id, data }) => {
           value={falseValue}
           onChange={handleFalseValueChange}
           placeholder="Value when condition is false"
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-input"
         />
       </div>
     </div>
@@ -162,7 +98,7 @@ export const ConditionalNode = createNodeComponent({
   inputs: [{ id: "input" }],
   outputs: [{ id: "true" }, { id: "false" }],
   content: ConditionalNodeContent,
-  width: 300,
-  height: 220,
+  width: 350,
+  height: 280,
   description: "Conditional node for branching logic",
 });

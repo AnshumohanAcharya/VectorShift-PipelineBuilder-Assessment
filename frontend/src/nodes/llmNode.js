@@ -4,18 +4,7 @@ import { createNodeComponent } from "./baseNode";
 
 const LLMNodeContent = () => {
   return (
-    <div
-      style={{
-        fontSize: "12px",
-        color: "#6b7280",
-        textAlign: "center",
-        padding: "16px",
-        flex: 1,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="node-default-content">
       This is an LLM node for processing text inputs and generating responses.
     </div>
   );

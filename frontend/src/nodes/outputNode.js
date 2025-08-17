@@ -23,63 +23,27 @@ const OutputNodeContent = ({ id, data }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        flex: 1,
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+    <div className="node-form">
+      <div className="form-group">
+        <label className="form-label">
           Name:
         </label>
         <input
           type="text"
           value={currName}
           onChange={handleNameChange}
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-input"
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+      <div className="form-group">
+        <label className="form-label">
           Type:
         </label>
         <select
           value={outputType}
           onChange={handleTypeChange}
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-select"
         >
           <option value="Text">Text</option>
           <option value="File">Image</option>

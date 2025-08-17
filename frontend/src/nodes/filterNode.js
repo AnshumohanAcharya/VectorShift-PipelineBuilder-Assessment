@@ -30,37 +30,15 @@ const FilterNodeContent = ({ id, data }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        flex: 1,
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+    <div className="node-form">
+      <div className="form-group">
+        <label className="form-label">
           Filter Condition:
         </label>
         <select
           value={filterCondition}
           onChange={handleConditionChange}
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-select"
         >
           <option value="contains">Contains</option>
           <option value="starts_with">Starts With</option>
@@ -70,15 +48,8 @@ const FilterNodeContent = ({ id, data }) => {
         </select>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+      <div className="form-group">
+        <label className="form-label">
           Filter Value:
         </label>
         <input
@@ -86,32 +57,19 @@ const FilterNodeContent = ({ id, data }) => {
           value={filterValue}
           onChange={handleValueChange}
           placeholder="Enter filter value"
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-input"
         />
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <div className="form-group checkbox-group">
         <input
           type="checkbox"
           checked={caseSensitive}
           onChange={handleCaseChange}
-          style={{ margin: 0 }}
+          id={`case-sensitive-${id}`}
+          className="form-checkbox"
         />
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            margin: 0,
-          }}
-        >
+        <label htmlFor={`case-sensitive-${id}`} className="form-label checkbox-label">
           Case Sensitive
         </label>
       </div>

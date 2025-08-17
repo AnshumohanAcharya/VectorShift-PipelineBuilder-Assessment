@@ -23,37 +23,15 @@ const TransformNodeContent = ({ id, data }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        flex: 1,
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+    <div className="node-form">
+      <div className="form-group">
+        <label className="form-label">
           Transform Type:
         </label>
         <select
           value={transformType}
           onChange={handleTypeChange}
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-select"
         >
           <option value="uppercase">Uppercase</option>
           <option value="lowercase">Lowercase</option>
@@ -64,15 +42,8 @@ const TransformNodeContent = ({ id, data }) => {
       </div>
 
       {transformType === "custom" && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          <label
-            style={{
-              fontSize: "12px",
-              fontWeight: "500",
-              color: "#374151",
-              marginBottom: "4px",
-            }}
-          >
+        <div className="form-group">
+          <label className="form-label">
             Custom Function:
           </label>
           <input
@@ -80,14 +51,7 @@ const TransformNodeContent = ({ id, data }) => {
             value={customTransform}
             onChange={handleCustomChange}
             placeholder="e.g., x => x.replace('a', 'b')"
-            style={{
-              padding: "8px",
-              border: "1px solid #d1d5db",
-              borderRadius: "4px",
-              fontSize: "12px",
-              width: "100%",
-              boxSizing: "border-box",
-            }}
+            className="form-input"
           />
         </div>
       )}

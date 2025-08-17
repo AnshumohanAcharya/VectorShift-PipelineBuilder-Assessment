@@ -14,7 +14,7 @@ export const DraggableNode = ({ type, label }) => {
   // Define colors for different node categories
   const getNodeColor = (nodeType) => {
     const colors = {
-      customInput: "#3b82f6", // Blue for input
+      customInput: "#667eea", // Blue for input
       customOutput: "#10b981", // Green for output
       llm: "#8b5cf6", // Purple for LLM
       text: "#f59e0b", // Amber for text
@@ -31,41 +31,19 @@ export const DraggableNode = ({ type, label }) => {
 
   return (
     <div
-      className={type}
+      className={`draggable-node ${type}`}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = "grab")}
       style={{
         cursor: "grab",
-        minWidth: "100px",
-        height: "50px",
-        display: "flex",
-        alignItems: "center",
-        borderRadius: "8px",
         backgroundColor: nodeColor,
-        justifyContent: "center",
-        flexDirection: "column",
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-        border: "2px solid transparent",
-      }}
-      onMouseEnter={(e) => {
-        e.target.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.15)";
-        e.target.style.borderColor = "rgba(255, 255, 255, 0.3)";
-      }}
-      onMouseLeave={(e) => {
-        e.target.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
-        e.target.style.borderColor = "transparent";
+        fontWeight: "bold",
+        fontSize: "1.2rem",
+        color: "white",
       }}
       draggable
     >
-      <span
-        style={{
-          color: "#fff",
-          fontSize: "12px",
-          fontWeight: "500",
-          textAlign: "center",
-          lineHeight: "1.2",
-        }}
-      >
+      <span className="draggable-node-label">
         {label}
       </span>
     </div>

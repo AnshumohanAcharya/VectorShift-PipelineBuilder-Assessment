@@ -240,31 +240,12 @@ export const PipelineUI = () => {
     <>
       <div
         ref={reactFlowWrapper}
-        style={{
-          width: "100vw",
-          height: "70vh",
-          backgroundColor: "#f8fafc",
-          position: 'relative'
-        }}
+        className="pipeline-canvas"
       >
         {/* Debug Panel */}
         <button
           onClick={() => setShowDebug(!showDebug)}
-          style={{
-            position: 'absolute',
-            top: '20px',
-            left: '20px',
-            padding: '8px 16px',
-            backgroundColor: '#f59e0b',
-            color: 'white',
-            border: 'none',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontSize: '14px',
-            fontWeight: '500',
-            zIndex: 1000,
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-          }}
+          className="debug-toggle-btn"
           title="Toggle debug panel"
         >
           🐛 Debug
@@ -272,54 +253,30 @@ export const PipelineUI = () => {
 
         {/* Debug Info */}
         {showDebug && (
-          <div style={{
-            position: 'absolute',
-            top: '60px',
-            left: '20px',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            color: 'white',
-            padding: '16px',
-            borderRadius: '8px',
-            fontSize: '12px',
-            fontFamily: 'monospace',
-            zIndex: 1000,
-            maxWidth: '300px',
-            maxHeight: '400px',
-            overflow: 'auto'
-          }}>
-            <h4 style={{ margin: '0 0 12px 0' }}>Debug Info</h4>
-            <div><strong>Nodes:</strong> {nodes.length}</div>
-            <div><strong>Edges:</strong> {edges.length}</div>
-            <div><strong>Grid Size:</strong> {gridSize}px</div>
-            <div><strong>Node Spacing:</strong> {nodeSpacing}px</div>
-            <div style={{ marginTop: '12px' }}>
-              <strong>Node Positions:</strong>
-              {nodes.map((node, index) => (
-                <div key={index} style={{ marginLeft: '8px', marginTop: '4px' }}>
-                  {node.type}: ({node.position.x.toFixed(0)}, {node.position.y.toFixed(0)})
-                </div>
-              ))}
+          <div className="debug-panel">
+            <h4 className="debug-title">Debug Info</h4>
+            <div className="debug-info">
+              <div><strong>Nodes:</strong> {nodes.length}</div>
+              <div><strong>Edges:</strong> {edges.length}</div>
+              <div><strong>Grid Size:</strong> {gridSize}px</div>
+              <div><strong>Node Spacing:</strong> {nodeSpacing}px</div>
+              <div className="node-positions">
+                <strong>Node Positions:</strong>
+                {nodes.map((node, index) => (
+                  <div key={index} className="node-position">
+                    {node.type}: ({node.position.x.toFixed(0)}, {node.position.y.toFixed(0)})
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}
 
         <ReactFlow {...reactFlowProps}>
-          <Background color="#e2e8f0" gap={gridSize} size={1} />
-          <Controls
-            style={{
-              backgroundColor: "white",
-              border: "1px solid #e2e8f0",
-              borderRadius: "8px",
-              boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-            }}
-          />
+          <Background color="var(--vs-border-light)" gap={gridSize} size={1} />
+          <Controls />
           <MiniMap
-            style={{
-              backgroundColor: "white",
-              border: "1px solid #e2e8f0",
-              borderRadius: "8px",
-            }}
-            nodeColor="#3b82f6"
+            nodeColor="var(--vs-accent-primary)"
             nodeStrokeWidth={3}
             zoomable
             pannable

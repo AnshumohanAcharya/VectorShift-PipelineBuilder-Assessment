@@ -21,37 +21,15 @@ const MergeNodeContent = ({ id, data }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        flex: 1,
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label
-          style={{
-            fontSize: "12px",
-            fontWeight: "500",
-            color: "#374151",
-            marginBottom: "4px",
-          }}
-        >
+    <div className="node-form">
+      <div className="form-group">
+        <label className="form-label">
           Merge Strategy:
         </label>
         <select
           value={mergeStrategy}
           onChange={handleStrategyChange}
-          style={{
-            padding: "8px",
-            border: "1px solid #d1d5db",
-            borderRadius: "4px",
-            fontSize: "12px",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
+          className="form-select"
         >
           <option value="concat">Concatenate</option>
           <option value="join">Join with Separator</option>
@@ -61,15 +39,8 @@ const MergeNodeContent = ({ id, data }) => {
       </div>
 
       {mergeStrategy === "join" && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          <label
-            style={{
-              fontSize: "12px",
-              fontWeight: "500",
-              color: "#374151",
-              marginBottom: "4px",
-            }}
-          >
+        <div className="form-group">
+          <label className="form-label">
             Separator:
           </label>
           <input
@@ -77,14 +48,7 @@ const MergeNodeContent = ({ id, data }) => {
             value={separator}
             onChange={handleSeparatorChange}
             placeholder="e.g., space, comma, newline"
-            style={{
-              padding: "8px",
-              border: "1px solid #d1d5db",
-              borderRadius: "4px",
-              fontSize: "12px",
-              width: "100%",
-              boxSizing: "border-box",
-            }}
+            className="form-input"
           />
         </div>
       )}
